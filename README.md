@@ -20,6 +20,7 @@
 
 ```bash
 pip install mijiaAPI
+# Or `uv add mijiaAPI` for uv users
 ```
 
 ### 从源码安装
@@ -29,7 +30,8 @@ git clone https://github.com/Do1e/mijia-api.git
 cd mijia-api
 pip install .
 # Or `pip install -e .` for editable mode
-# Or `uv sync` for uv users
+# Or `pip install git+https://github.com/Do1e/mijia-api.git` for direct install
+# Or `uv add git+https://github.com/Do1e/mijia-api.git` for uv users
 ```
 
 ### aur
