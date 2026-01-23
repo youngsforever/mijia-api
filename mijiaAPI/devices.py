@@ -190,7 +190,9 @@ class mijiaDevice():
         method["did"] = self.did
         method["value"] = value
         result = self.api.set_devices_prop(method)
-        if result["code"] != 0:
+        if result["code"] == 1:
+            logger.warning(f"网关已经接收指令，无法判断是否设置成功: {self.name} -> {name}, 值: {value}")
+        elif result["code"] != 0:
             raise DeviceSetError(self.name, name, result["code"])
         time.sleep(self.sleep_time)
         logger.debug(f"设置属性: {self.name} -> {name}, 值: {value}, 结果: {result}")
@@ -228,7 +230,9 @@ class mijiaDevice():
                     raise ValueError(f"无效的参数: {k}. 请勿使用以下参数 ({', '.join(method.keys())})")
                 method[k] = v
         result = self.api.run_action(method)
-        if result["code"] != 0:
+        if result["code"] == 1:
+            logger.warning(f"网关已经接收指令，无法判断是否执行成功: {self.name} -> {name}")
+        elif result["code"] != 0:
             raise DeviceActionError(self.name, name, result["code"])
         time.sleep(self.sleep_time)
         logger.debug(f"执行动作: {self.name} -> {name}, 结果: {result}")

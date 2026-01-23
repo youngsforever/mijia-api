@@ -665,7 +665,7 @@ class mijiaAPI():
         uri = "/miotspec/prop/set"
         ret_data = self._request(uri, {"params": params})
         for ret in ret_data:
-            if ret.get("code", 0) != 0:
+            if ret.get("code", 0) not in (0, 1):
                 ret.update({"message": ERROR_CODE.get(str(ret["code"]), "未知错误")})
             else:
                 ret.update({"message": "成功"})
@@ -741,7 +741,7 @@ class mijiaAPI():
             ret = self._request(uri, {"params": param})
             ret_data.append(ret)
         for ret in ret_data:
-            if ret.get("code", 0) != 0:
+            if ret.get("code", 0) not in (0, 1):
                 ret.update({"message": ERROR_CODE.get(str(ret["code"]), "未知错误")})
             else:
                 ret.update({"message": "成功"})
