@@ -2,6 +2,10 @@
 
 本文档记录了项目的v1.3.7以来的重要变更。
 
+## [3.0.5](https://github.com/Do1e/mijia-api/compare/v3.0.4...v3.0.5) - 2026-01-24
+### bugfix
+* 蓝牙设备控制返回 code 为 1 时表示网关已经接收指令，视为成功。
+
 ## [3.0.4](https://github.com/Do1e/mijia-api/compare/v3.0.3...v3.0.4) - 2026-01-12
 ### bugfix
 * api不可用时不对`available`进行缓存，以修复刷新token成功后依然提示不可用的问题
