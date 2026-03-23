@@ -323,7 +323,7 @@ def main(args):
                 raise ValueError("未找到小爱音箱设备")
         else:
             wifispeaker = mijiaDevice(api, dev_name=args.wifispeaker_name)
-        wifispeaker.run_action('execute-text-directive', _in=[args.run, args.quiet])
+        wifispeaker.run_action('execute-text-directive', _in=[args.run, 1 if args.quiet else 0])
     if hasattr(args, 'func') and args.func is not None:
         if args.func == 'get':
             get(args)
